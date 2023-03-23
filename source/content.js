@@ -1,48 +1,45 @@
-import optionsStorage from './options-storage.js';
+// Import optionsStorage from './options-storage.js';
 
 console.log('💈 Content script loaded for', chrome.runtime.getManifest().name);
 
-// document.body.style.backgroundColor = "orange";
+// Document.body.style.backgroundColor = "orange";
 
 // console.log('doc', document.getElementById('editorcontainer'))
 // console.log('iframe', document.querySelector('iframe'))
 
-
 // const test = document.querySelector('div')
 // console.log('test', test)
 
-
-chrome.storage.sync.get("doSpellcheck").then((result) => {
-	console.log("Value currently is ", result.doSpellcheck);
+chrome.storage.sync.get('doSpellcheck').then(result => {
+	console.log('Value currently is', result.doSpellcheck);
 	if (result.doSpellcheck) {
-		setTimeout(spellcheck, 3000)
+		setTimeout(spellcheck, 3000);
 	}
 });
 
 function spellcheck(enable = true) {
-	const outerFrame = document.querySelector('#editorcontainer').firstChild
-	console.log('outerFrame', outerFrame)
-	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe')
-	console.log('innerFrame', innerFrame)
+	const outerFrame = document.querySelector('#editorcontainer').firstChild;
+	console.log('outerFrame', outerFrame);
+	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe');
+	console.log('innerFrame', innerFrame);
 
-	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody')
-	console.log('innerDoc', innerDoc)
-
+	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody');
+	console.log('innerDoc', innerDoc);
 
 	const spellcheck = {
-		enable: () => {
-			console.log('enable spellcheck')
-			innerDoc.setAttribute('spellcheck', 'true')
+		enable() {
+			console.log('enable spellcheck');
+			innerDoc.setAttribute('spellcheck', 'true');
 		},
-		disable: () => {
-			console.log('disable spellcheck')
-			innerDoc.setAttribute('spellcheck', 'false')
+		disable() {
+			console.log('disable spellcheck');
+			innerDoc.setAttribute('spellcheck', 'false');
 		},
-	}
-	if(enable) {
-		spellcheck.enable()
+	};
+	if (enable) {
+		spellcheck.enable();
 	} else {
-		spellcheck.disable()
+		spellcheck.disable();
 	}
 }
 
@@ -50,12 +47,13 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
 	if (data) {
 		// Do something amazing
 	}
+
 	sendResponse({
-		received: true
+		received: true,
 	});
 });
 
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+// Chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 // 	console.log('message', request, sender)
 // 	if (request === 'spellcheck_enable') {
 // 		spellcheck(true)
@@ -64,7 +62,6 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
 // 		spellcheck(false)
 // 	}
 // });
-
 
 /*
 async function init() {
@@ -77,7 +74,6 @@ async function init() {
 	notice.id = 'text-notice';
 	notice.style.border = '2px solid ' + color;
 	notice.style.color = color;
-
 
 	function setUp() {
 		const test = document.querySelector('div')
