@@ -1,14 +1,14 @@
 {
-  "name": "EtherSpelling",
+  "name": "Äh? Ether-Spell",
   "version": "0.0.0",
-  "description": "An awesome new browser extension",
+  "description": "Etherpad spellchecking support browser extension",
   "homepage_url": "https://yopad.eu/p/testing-spelling",
   "manifest_version": 3,
-  "minimum_chrome_version": "100",
+  "minimum_chrome_version": "110",
   "browser_specific_settings": {
 	"gecko": {
-	  "id": "awesome-extension@notlmn.github.io",
-	  "strict_min_version": "100.0"
+	  "id": "ether-spell@milangress.github.io",
+	  "strict_min_version": "110.0"
 	}
   },
   "icons": {
