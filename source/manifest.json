@@ -1,6 +1,6 @@
 {
   "name": "Äh? Ether-Spell",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Etherpad spellchecking support browser extension",
   "homepage_url": "https://yopad.eu/p/testing-spelling",
   "manifest_version": 3,
