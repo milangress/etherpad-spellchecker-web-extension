@@ -7,6 +7,7 @@
 
 
 > **Warning**
+>
 > Turning Spellchecking on can deteriorate your performance (especially on older computers and with more active participants.)
 
 As a very dyslexic person that is highly dependent on spellcheckers, and considers them as assistive devices. I'm increasingly frustrated that ether-pad does not provide a spellcheck solution. This plugin is still a work in progress, so if you find an ether-pad installation that does not function with this plugin, please reach out to me.
