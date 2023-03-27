@@ -33,6 +33,7 @@ This plugin is still a work in progress, so if you find an Etherpad installation
   - google-chrome / chromium
   - edge
   - ~~safari~~ (apple charges 100€ per year) but if you need to use safari, I could create a bookmarklet for you, just reach out to me.
+- for manual installations: [Automatic Releases](https://github.com/milangress/etherpad-spellchecker-web-extension/releases)
 
 
 ## Participate / Contribute
