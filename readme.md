@@ -1,6 +1,10 @@
 # 🌱 Ether-Spell 🌱
 
-> activate spellchecking in Etherpad (browser extension)
+---
+
+> activate spellchecking in Etherpad (as a browser extension)
+
+---
 
 ![Sample extension options output](media/bg.png)
 
@@ -10,11 +14,28 @@
 >
 > Turning Spellchecking on can deteriorate your performance (especially on older computers and with more active participants.)
 
-As a very dyslexic person that is highly dependent on spellcheckers, and considers them as assistive devices. I'm increasingly frustrated that ether-pad does not provide a spellcheck solution. This plugin is still a work in progress, so if you find an ether-pad installation that does not function with this plugin, please reach out to me.
+---
+
+As a very dyslexic person that is highly dependent on spellcheckers, and considers them as assistive devices. I'm increasingly frustrated that Etherpad does not provide a spellcheck solution.  Again and again I found myself going for Google Docs instead of Etherpad or at least typing in another program with better spellcheck support.  Which totally goes against the collaborative aspect of Etherpad… This stops now! … at least for me. And maybe it is also useful for you :)
+
+This plugin is still a work in progress, so if you find an Etherpad installation that does not function with this plugin, please reach out to me.
 
 
+## Notes
 
-## Getting started
+- there is also an [official(?) plugin](https://github.com/ether/ep_spellcheck) that activates spellcheck in Etherpad, but then people come and use some obscure instance, and you're without spellchecking again…
+- this plugin can also be used in combination with complex spellcheckers like [LanguageTool](https://languagetool.org/) or [Hunspell](https://hunspell.github.io/). But be aware that this can have a negative impact on performance.
+- compatibible with:
+  - firefox
+  - opera
+  - brave
+  - vivaldi
+  - google-chrome / chromium
+  - edge
+  - ~~safari~~ (apple charges 100€ per year) but if you need to use safari, I could create a bookmarklet for you, just reach out to me.
+
+
+## Participate / Contribute
 
 ### 🛠 Build locally
 
@@ -31,7 +52,6 @@ Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-star
 1. Run `npm run watch` to watch for file changes and build continuously
 1. Run `npm install --global web-ext` (only only for the first time)
 1. In another terminal, run `web-ext run -t chromium`
-1. Check that the extension is loaded by opening the extension options ([in Firefox](media/extension_options_firefox.png) or [in Chrome](media/extension_options_chrome.png)).
 
 #### Manually
 
