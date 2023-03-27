@@ -8,7 +8,7 @@
 	<title>Document</title>
 	<style>
 		body {
-			width: 250px;
+			width: 220px;
 			height: 100px;
 			display: flex;
 			flex-direction: column;
@@ -17,18 +17,60 @@
 
 			color: white;
 			font-size: 30px;
-			background-color: red;
+			background-color: purple;
+
+			font-family: Arial,sans-serif;
+			font-weight: 400;
+		}
+		.button {
+			display: inline-block;
+			padding: 0.2rem 2rem;
+			margin: 0.5rem 0.5rem 0.2rem 0;
+			background: #5a064b;
+			color: #fff;
+			min-width: 2rem;
+			line-height: 1.2em;
+			border-radius: 10em;
+			white-space: nowrap;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+		}
+		.active {
+			box-shadow: 0 0 10px 8px hsl(0deg 0% 100% / 90%);
+		}
+		.active:after {
+			content: "";
+			top: -10px;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			background: url(https://media.giphy.com/media/3ohhwBfx3ik9jIVTOM/giphy.gif) no-repeat 50%;
+			background-size: contain;
+		}
+		.hop {
+			transition: transform 60ms ease-in-out;
+			-webkit-transform-style: preserve-3d;
+			-webkit-backface-visibility: hidden;
+		}
+		.hop:hover {
+			transform: scale(1.05);
 		}
 	</style>
 </head>
 
 <body>
 <div>
-	Ether-Spell
+	<div class="button active hop" id="spell">
+		🌱 yaaas
+	</div>
+	<!--Ether-Spell
 	<form>
 		<input type="checkbox" name="spelcheck" id="spell"/>
 		<label for="spell">Spellcheck</label><br>
-	</form>
+	</form>-->
 </div>
 
 <script src="popup-script.js"></script>

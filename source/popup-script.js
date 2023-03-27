@@ -5,34 +5,51 @@ console.log('test popup');
 
 const input = document.querySelector('#spell');
 
-chrome.storage.sync.get('doSpellcheck').then(result => {
+let active = false
+
+chrome.storage.local.get('doSpellcheck').then(result => {
 	console.log('Value currently is', result.doSpellcheck);
-	input.checked = result.doSpellcheck;
-	if (result.doSpellcheck) {
-		sendMessage(true);
-	}
+	active = result.doSpellcheck;
+	clickButton();
 });
 
-chrome.storage.sync.get(null, items => {
+chrome.storage.local.get(null, items => {
 	console.log(items);
 });
 
 if (input) {
-	input.addEventListener('change', doalert, false);
+	input.addEventListener('mousedown', clickButton, false);
 }
 
-function doalert() {
-	if (this.checked) {
-		chrome.storage.sync.set({doSpellcheck: true}).then(() => {
+
+
+function setButton() {
+	console.log('button?', active)
+	if (!active) {
+		input.innerHTML = '🌱 yaaas';
+		input.classList.add('active')
+	} else {
+		input.innerHTML = '💀💀💀';
+		input.classList.remove('active')
+	}
+}
+
+function clickButton() {
+	console.log('active?', active)
+	if (active) {
+		chrome.storage.local.set({doSpellcheck: true}).then(() => {
 			console.log('Value is set to ' + true);
 		});
 		sendMessage(true);
+		setButton();
 	} else {
-		chrome.storage.sync.set({doSpellcheck: false}).then(() => {
+		chrome.storage.local.set({doSpellcheck: false}).then(() => {
 			console.log('Value is set to ' + false);
 		});
 		sendMessage(false);
+		setButton();
 	}
+	active = !active;
 }
 
 function sendMessage(enable = true) {
@@ -51,17 +68,18 @@ function sendMessage(enable = true) {
 }
 
 const spellcheck = async (enable = true) => {
+	console.log('set Spellcheck:', enable);
 	const outerFrame = document.querySelector('#editorcontainer').firstChild;
-	console.log('outerFrame', outerFrame);
+	// console.log('outerFrame', outerFrame);
 	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe');
-	console.log('innerFrame', innerFrame);
+	// console.log('innerFrame', innerFrame);
 
 	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody');
-	console.log('innerDoc', innerDoc);
+	// console.log('innerDoc', innerDoc);
 
 	const spellcheck = {
 		enable() {
-			console.log('enable spellcheck');
+			// console.log('enable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'true');
 			innerDoc.focus();
 			innerDoc.blur();
@@ -73,7 +91,7 @@ const spellcheck = async (enable = true) => {
 			}
 		},
 		disable() {
-			console.log('disable spellcheck');
+			// console.log('disable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'false');
 			innerDoc.focus();
 			innerDoc.blur();

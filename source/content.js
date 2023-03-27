@@ -10,30 +10,47 @@ console.log('💈 Content script loaded for', chrome.runtime.getManifest().name)
 // const test = document.querySelector('div')
 // console.log('test', test)
 
-chrome.storage.sync.get('doSpellcheck').then(result => {
+chrome.storage.local.get('doSpellcheck').then(result => {
 	console.log('Value currently is', result.doSpellcheck);
 	if (result.doSpellcheck) {
 		setTimeout(spellcheck, 3000);
 	}
 });
 
-function spellcheck(enable = true) {
+const spellcheck = async (enable = true) => {
+	console.log('set Spellcheck:', enable);
 	const outerFrame = document.querySelector('#editorcontainer').firstChild;
-	console.log('outerFrame', outerFrame);
+	// console.log('outerFrame', outerFrame);
 	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe');
-	console.log('innerFrame', innerFrame);
+	// console.log('innerFrame', innerFrame);
 
 	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody');
-	console.log('innerDoc', innerDoc);
+	// console.log('innerDoc', innerDoc);
 
 	const spellcheck = {
 		enable() {
-			console.log('enable spellcheck');
+			// console.log('enable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'true');
+			innerDoc.focus();
+			innerDoc.blur();
+			for (const element of innerDoc.children) {
+				console.log(element.id);
+				element.setAttribute('spellcheck', 'true');
+				element.focus();
+				element.blur();
+			}
 		},
 		disable() {
-			console.log('disable spellcheck');
+			// console.log('disable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'false');
+			innerDoc.focus();
+			innerDoc.blur();
+			for (const element of innerDoc.children) {
+				console.log(element.id);
+				element.setAttribute('spellcheck', 'false');
+				element.focus();
+				element.blur();
+			}
 		},
 	};
 	if (enable) {
@@ -41,17 +58,8 @@ function spellcheck(enable = true) {
 	} else {
 		spellcheck.disable();
 	}
-}
+};
 
-chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
-	if (data) {
-		// Do something amazing
-	}
-
-	sendResponse({
-		received: true,
-	});
-});
 
 // Chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 // 	console.log('message', request, sender)
