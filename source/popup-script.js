@@ -5,7 +5,7 @@ console.log('test popup');
 
 const input = document.querySelector('#spell');
 
-let active = false
+let active = false;
 
 chrome.storage.local.get('doSpellcheck').then(result => {
 	console.log('Value currently is', result.doSpellcheck);
@@ -21,21 +21,19 @@ if (input) {
 	input.addEventListener('mousedown', clickButton, false);
 }
 
-
-
 function setButton() {
-	console.log('button?', active)
-	if (!active) {
-		input.innerHTML = '🌱 yaaas';
-		input.classList.add('active')
-	} else {
+	console.log('button?', active);
+	if (active) {
 		input.innerHTML = '💀💀💀';
-		input.classList.remove('active')
+		input.classList.remove('active');
+	} else {
+		input.innerHTML = '🌱 yaaas';
+		input.classList.add('active');
 	}
 }
 
 function clickButton() {
-	console.log('active?', active)
+	console.log('active?', active);
 	if (active) {
 		chrome.storage.local.set({doSpellcheck: true}).then(() => {
 			console.log('Value is set to ' + true);
@@ -49,6 +47,7 @@ function clickButton() {
 		sendMessage(false);
 		setButton();
 	}
+
 	active = !active;
 }
 
@@ -70,16 +69,16 @@ function sendMessage(enable = true) {
 const spellcheck = async (enable = true) => {
 	console.log('set Spellcheck:', enable);
 	const outerFrame = document.querySelector('#editorcontainer').firstChild;
-	// console.log('outerFrame', outerFrame);
+	// Console.log('outerFrame', outerFrame);
 	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe');
-	// console.log('innerFrame', innerFrame);
+	// Console.log('innerFrame', innerFrame);
 
 	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody');
-	// console.log('innerDoc', innerDoc);
+	// Console.log('innerDoc', innerDoc);
 
 	const spellcheck = {
 		enable() {
-			// console.log('enable spellcheck');
+			// Console.log('enable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'true');
 			innerDoc.focus();
 			innerDoc.blur();
@@ -91,7 +90,7 @@ const spellcheck = async (enable = true) => {
 			}
 		},
 		disable() {
-			// console.log('disable spellcheck');
+			// Console.log('disable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'false');
 			innerDoc.focus();
 			innerDoc.blur();

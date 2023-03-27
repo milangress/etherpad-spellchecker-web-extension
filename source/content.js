@@ -20,16 +20,16 @@ chrome.storage.local.get('doSpellcheck').then(result => {
 const spellcheck = async (enable = true) => {
 	console.log('set Spellcheck:', enable);
 	const outerFrame = document.querySelector('#editorcontainer').firstChild;
-	// console.log('outerFrame', outerFrame);
+	// Console.log('outerFrame', outerFrame);
 	const innerFrame = outerFrame.contentWindow.document.querySelector('iframe');
-	// console.log('innerFrame', innerFrame);
+	// Console.log('innerFrame', innerFrame);
 
 	const innerDoc = innerFrame.contentWindow.document.querySelector('#innerdocbody');
-	// console.log('innerDoc', innerDoc);
+	// Console.log('innerDoc', innerDoc);
 
 	const spellcheck = {
 		enable() {
-			// console.log('enable spellcheck');
+			// Console.log('enable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'true');
 			innerDoc.focus();
 			innerDoc.blur();
@@ -41,7 +41,7 @@ const spellcheck = async (enable = true) => {
 			}
 		},
 		disable() {
-			// console.log('disable spellcheck');
+			// Console.log('disable spellcheck');
 			innerDoc.setAttribute('spellcheck', 'false');
 			innerDoc.focus();
 			innerDoc.blur();
@@ -59,7 +59,6 @@ const spellcheck = async (enable = true) => {
 		spellcheck.disable();
 	}
 };
-
 
 // Chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 // 	console.log('message', request, sender)
