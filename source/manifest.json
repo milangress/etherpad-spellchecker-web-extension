@@ -23,27 +23,5 @@
 	"scripting",
 	"activeTab",
 	"storage"
-  ],
-  "content_scripts": [
-	{
-	  "matches": [
-		"https://etherpad.hackersanddesigners.nl/p/*",
-		"https://pad.constantvzw.org/p/*",
-		"https://etherpad.wikimedia.org/p/*",
-		"https://board.net/p/*",
-		"https://pad.riseup.net/p/*",
-		"https://pad.okfn.org/p/*",
-		"https://pad.ccc.de/p/*",
-		"https://pad.lqdn.fr/p/*",
-		"https://yopad.eu/p/*"
-	  ],
-	  "js": [
-		"content.js"
-	  ],
-	  "css": [
-		"content.css"
-	  ],
-	  "run_at": "document_end"
-	}
   ]
 }
