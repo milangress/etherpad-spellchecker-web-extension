@@ -21,7 +21,7 @@ As a very dyslexic person that is highly dependent on spellcheckers, and conside
 This plugin is still a work in progress, so if you find an Etherpad installation that does not function with this plugin, please reach out to me.
 
 
-> [**Firefox Add-on**](https://addons.mozilla.org/de/firefox/addon/ether-spell/)
+🡢🡪🡲🡺🢂 ⚡ [**Firefox Add-on**](https://addons.mozilla.org/de/firefox/addon/ether-spell/)
 
 
 ## Notes
