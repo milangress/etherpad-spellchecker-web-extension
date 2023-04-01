@@ -22,9 +22,9 @@ This plugin is still a work in progress, so if you find an Etherpad installation
 
 ---
 
-🡢🡪🡲🡺🢂 ⚡ [**Firefox Add-on Store**](https://addons.mozilla.org/de/firefox/addon/ether-spell/)
+🡢🡪🡲🡺🢂 ⚡ [**Firefox Add-on Store**](https://addons.mozilla.org/de/firefox/addon/ether-spell/) ⚡
 
-🡢🡪🡲🡺🢂 ⚡ [**Chrome Add-on Store **](https://chrome.google.com/webstore/detail/ether-spell/bnpliibejhncbgolpbjpdbmckcpbljhg)
+🡢🡪🡲🡺🢂 ⚡ [**Chrome Add-on Store**](https://chrome.google.com/webstore/detail/ether-spell/bnpliibejhncbgolpbjpdbmckcpbljhg) ⚡
 
 ---
 
