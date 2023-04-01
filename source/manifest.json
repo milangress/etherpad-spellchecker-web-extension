@@ -1,7 +1,7 @@
 {
   "name": "Ether-Spell",
   "version": "1.0.0",
-  "description": "Etherpad spellchecking support browser extension",
+  "description": "Activate spellchecking in Etherpad",
   "homepage_url": "https://github.com/milangress/etherpad-spellchecker-web-extension",
   "manifest_version": 3,
   "minimum_chrome_version": "110",
